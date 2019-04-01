@@ -6,7 +6,8 @@ sudo -u postgres -i
 # creating Data folder and downloading data
 mkdir Data && cd Data
 echo "Before downloading the data please makesure you have access to the dataset"
-wget --user <username> --ask-password -A csv.gz -m -p -E -k -K -np -nd https://physionet.org/works/MIMICIIIClinicalDatabase/files/
+read -r -p 'Please enter user username for PhysioNet>>> ' username
+wget --user $username --ask-password -A csv.gz -m -p -E -k -K -np -nd https://physionet.org/works/MIMICIIIClinicalDatabase/files/
 
 # unzipping data
 gunzip ./*.gz
